@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect x="2" y="2" width="60" height="60" rx="13" fill="#0b1220" stroke="#103a5a" stroke-width="1.5"/>
+  <!-- carrocería -->
+  <path d="M7.5 44.5 L7.5 37.5 C7.5 35 11 33.6 15.5 33 L24.5 24.5 C27.5 21.8 36.5 21.8 41 24.5 L48.5 33 C53 33.6 56.5 35 56.5 37.5 L56.5 44.5 Z" fill="#00e0ff"/>
+  <!-- ventana -->
+  <path d="M26.5 28.5 L31 24.2 C33 22.8 38 22.8 41 24.2 L45 28.5 Z" fill="#0b1220"/>
+  <!-- faro -->
+  <circle cx="55" cy="39" r="1.8" fill="#ffffff"/>
+  <!-- ruedas -->
+  <circle cx="19.5" cy="44" r="6.5" fill="#0b1220" stroke="#00e0ff" stroke-width="2.3"/>
+  <circle cx="19.5" cy="44" r="2" fill="#00e0ff"/>
+  <circle cx="45.5" cy="44" r="6.5" fill="#0b1220" stroke="#00e0ff" stroke-width="2.3"/>
+  <circle cx="45.5" cy="44" r="2" fill="#00e0ff"/>
+</svg>

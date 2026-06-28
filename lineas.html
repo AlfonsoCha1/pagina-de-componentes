@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marelli · Líneas y módulos del coche</title>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/lineas.css">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0b1220">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="brand"><span class="dot"></span><div>Marelli SMT<small>LÍNEAS Y MÓDULOS</small></div></div>
+  <button class="menu-btn" onclick="document.getElementById('navlinks').classList.toggle('show')">☰</button>
+  <ul id="navlinks">
+    <!-- 👇 estos enlaces REGRESAN al index.html (la otra página) -->
+    <li><a href="index.html#inicio">Inicio</a></li>
+    <li><a href="index.html#componentes">Componentes</a></li>
+    <li><a href="index.html#examen">Examen</a></li>
+    <li><a href="#coche">El coche</a></li>
+    <li><a href="#lineas">Líneas</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div class="grid-bg"></div>
+  <div class="hero-in">
+    <div class="eyebrow">Planta · módulos · línea SMT</div>
+    <h1>¿Dónde vive cada <span>tarjeta</span> en el coche?</h1>
+    <p>Toca un módulo del carro y descubre qué hace y qué componentes lleva. Abajo está la línea de producción donde se fabrica.</p>
+    <a href="index.html" class="back btn btn-2">← Volver a componentes y examen</a>
+  </div>
+</header>
+
+<main>
+
+<!-- COCHE INTERACTIVO (la sorpresa) -->
+<section id="coche">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">Mapa del vehículo</div>
+      <h2>El coche por dentro</h2>
+      <p>Cada punto es un módulo electrónico. El punto <b style="color:var(--copper)">naranja</b> es la TCU — el área de pruebas.</p>
+    </div>
+
+    <div class="car-stage" id="carStage">
+      <svg viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg">
+        <!-- piso -->
+        <line x1="40" y1="300" x2="760" y2="300" stroke="#1f3357" stroke-width="2"/>
+        <!-- carrocería -->
+        <path d="M90 250 L150 250 Q175 190 250 185 L300 150 Q330 128 400 126 L520 128 Q580 132 615 185 L690 200 Q720 208 722 250 L740 250 Q752 250 752 268 L752 282 Q752 290 742 290 L92 290 Q82 290 82 280 L82 262 Q82 250 90 250 Z"
+              fill="#13243f" stroke="#2b4a78" stroke-width="2.5"/>
+        <!-- cofre brillo -->
+        <path d="M615 186 L690 200 Q718 207 721 246 L640 240 Q628 205 615 186 Z" fill="#0e1c33"/>
+        <!-- ventanas -->
+        <path d="M312 154 Q336 134 398 132 L470 133 L470 184 L268 184 Q282 162 312 154 Z" fill="#0a3d4a" stroke="#0891b2" stroke-width="1.5"/>
+        <path d="M482 134 L516 135 Q566 140 600 184 L482 184 Z" fill="#0a3d4a" stroke="#0891b2" stroke-width="1.5"/>
+        <line x1="476" y1="133" x2="476" y2="184" stroke="#2b4a78" stroke-width="3"/>
+        <!-- antena tipo aleta (telemática) -->
+        <path d="M430 132 Q436 104 470 110 L468 132 Z" fill="#e8a15a" stroke="#b9762f" stroke-width="1.5"/>
+        <!-- ruedas -->
+        <circle cx="240" cy="290" r="48" fill="#0b1220" stroke="#334155" stroke-width="3"/>
+        <circle cx="240" cy="290" r="22" fill="#16233f" stroke="#475569" stroke-width="3"/>
+        <circle cx="600" cy="290" r="48" fill="#0b1220" stroke="#334155" stroke-width="3"/>
+        <circle cx="600" cy="290" r="22" fill="#16233f" stroke="#475569" stroke-width="3"/>
+        <!-- faro -->
+        <path d="M722 250 L740 250 Q752 250 752 268 L730 268 Z" fill="#fde68a"/>
+      </svg>
+
+      <!-- HOTSPOTS (posición en % sobre la imagen) -->
+      <button class="hotspot tcu" style="left:56%;top:33%" data-m="tcu" title="TCU / Telemática">★</button>
+      <button class="hotspot"     style="left:84%;top:62%" data-m="ecu" title="ECU del motor">1</button>
+      <button class="hotspot"     style="left:48%;top:50%" data-m="cluster" title="Tablero">2</button>
+      <button class="hotspot"     style="left:40%;top:70%" data-m="bcm" title="BCM">3</button>
+      <button class="hotspot"     style="left:30%;top:80%" data-m="abs" title="ABS">4</button>
+    </div>
+
+    <div class="module-panel" id="modPanel"></div>
+    <p class="hint">toca cualquier punto del coche para ver su módulo</p>
+  </div>
+</section>
+
+<!-- LÍNEA DE PRODUCCIÓN -->
+<section id="lineas" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">Producción</div>
+      <h2>La línea SMT (ejemplo)</h2>
+      <p>Así viaja la tarjeta por la línea hasta llegar a tu estación de pruebas. Es un ejemplo genérico — reemplázalo con tus líneas reales abajo.</p>
+    </div>
+    <div class="lineflow">
+      <div class="lf"><div class="n">01</div><h4>Serigrafía</h4><p>Aplica pasta de soldadura sobre los pads.</p></div>
+      <div class="arrow">→</div>
+      <div class="lf"><div class="n">02</div><h4>SPI</h4><p>Inspecciona el depósito de pasta.</p></div>
+      <div class="arrow">→</div>
+      <div class="lf"><div class="n">03</div><h4>Pick &amp; Place</h4><p>Coloca los componentes SMT.</p></div>
+      <div class="arrow">→</div>
+      <div class="lf"><div class="n">04</div><h4>Reflow</h4><p>Horno que funde la pasta y suelda.</p></div>
+      <div class="arrow">→</div>
+      <div class="lf"><div class="n">05</div><h4>AOI</h4><p>Inspección óptica de soldadura.</p></div>
+      <div class="arrow">→</div>
+      <div class="lf"><div class="n">06</div><h4>ICT / FCT</h4><p>Prueba eléctrica y funcional (tu área T5).</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== -->
+<!-- ======   AQUÍ PEGA TU CÓDIGO DE LAS LÍNEAS REALES ===== -->
+<!-- ====================================================== -->
+<section id="mis-lineas">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">Tus líneas</div>
+      <h2>Líneas reales de Marelli</h2>
+      <p>Borra el recuadro de abajo y pega aquí tu código (TBM2, OBP, DLC, LIGHT, JL, Q5, etc.).</p>
+    </div>
+
+    <div class="dropzone">
+      📋 <b>Pega aquí tu código.</b><br><br>
+      Reemplaza este recuadro por tu HTML de las líneas. Está entre los comentarios
+      <code>&lt;!-- AQUÍ PEGA TU CÓDIGO --&gt;</code> en el archivo <code>lineas.html</code>.
+    </div>
+
+  </div>
+</section>
+<!-- ====== FIN DE LA ZONA PARA TU CÓDIGO ====== -->
+
+</main>
+
+<footer>
+  <p>Marelli Tepotzotlán · Líneas y módulos del vehículo</p>
+  <p class="mono">Página enlazada desde index.html</p>
+</footer>
+
+<script src="js/lineas.js"></script>
+<script>
+if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));}
+</script>
+</body>
+</html>
