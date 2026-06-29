@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marelli · Tarjeta Automotriz SMT</title>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/componentes.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0b1220">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="brand"><span class="dot"></span><div>Marelli SMT<small>TARJETA AUTOMOTRIZ · CAPACITACIÓN</small></div></div>
+  <button class="menu-btn" onclick="document.getElementById('navlinks').classList.toggle('show')">☰</button>
+  <ul id="navlinks">
+    <li><a href="index.html">🏠 Portal</a></li>
+    <li><a href="#componentes">Componentes</a></li>
+    <li><a href="#repaso">Repaso</a></li>
+    <li><a href="#examen">Examen</a></li>
+    <li><a href="lineas.html">Líneas</a></li>
+    <li><a href="mantenimiento.html">Mantenimiento</a></li>
+  </ul>
+</nav>
+
+<header class="hero" id="inicio">
+  <div class="grid-bg"></div>
+  <div class="hero-in">
+    <div class="eyebrow">Capacitación · SMT · ICT/FCT</div>
+    <h1>Aprende qué lleva una <span>tarjeta verde</span> automotriz</h1>
+    <p>Guía visual de los componentes de montaje superficial (SMT) que ves en una ECU/TCU: para qué sirve cada uno, cómo identificarlo en la línea, qué pasa si su valor sube o baja, y un examen para practicar antes de pisar producción.</p>
+    <div class="cta">
+      <a href="#componentes" class="btn btn-1">Ver componentes →</a>
+      <a href="#examen" class="btn btn-2">Hacer examen</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b id="stCount">25</b><span>COMPONENTES</span></div>
+      <div class="stat"><b>5</b><span>ETAPAS DE LA TARJETA</span></div>
+      <div class="stat"><b id="stQ">0</b><span>PREGUNTAS DE EXAMEN</span></div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ETAPAS -->
+<section id="etapas" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">Cómo se ordena la placa</div>
+      <h2>Las 5 etapas de una tarjeta automotriz</h2>
+      <p>Sigue el camino de la señal: entra la energía de 12 V, se limpia, se procesa, se guarda y sale convertida en fuerza para mover algo en el carro.</p>
+    </div>
+    <div class="flow">
+      <div class="stage"><div class="num">ETAPA 01</div><h3>Alimentación y protección</h3><p>Recibe los 12 V de la batería y los deja estables y limpios para el resto de la placa.</p><ul><li>Capacitores (cerámicos y electrolíticos)</li><li>Diodos y diodo Zener (anti-polaridad inversa)</li><li>Reguladores: 12 V → 5 V / 3.3 V</li></ul></div>
+      <div class="stage"><div class="num">ETAPA 02</div><h3>Procesamiento (el cerebro)</h3><p>Analiza las señales de los sensores y decide qué hacer.</p><ul><li>Filtros RC (limpian ruido en las entradas)</li><li>Cristal oscilador (el reloj del sistema)</li><li>Microcontrolador MCU (la CPU)</li></ul></div>
+      <div class="stage"><div class="num">ETAPA 03</div><h3>Memoria</h3><p>Guarda el software, el inmovilizador y los parámetros del motor.</p><ul><li>Flash / EEPROM / EPROM</li><li>Permite reprogramar el módulo</li></ul></div>
+      <div class="stage"><div class="num">ETAPA 04</div><h3>Salida y actuadores</h3><p>Manda la fuerza para mover lo mecánico.</p><ul><li>Drivers (amplifican las órdenes)</li><li>MOSFET / IGBT de potencia</li><li>Protección contra picos inductivos</li></ul></div>
+      <div class="stage"><div class="num">ETAPA 05</div><h3>Comunicación y diagnóstico</h3><p>Habla con los demás módulos del carro.</p><ul><li>Protección ESD (arnés)</li><li>Transceptor CAN / LIN</li><li>Diagnóstico OBD2</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPONENTES -->
+<section id="componentes">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">Catálogo SMT</div>
+      <h2>Componentes de la tarjeta</h2>
+      <p>Cada tarjeta trae su dibujo de cómo se ve en SMT, su encapsulado típico y cómo distinguirlo. El badge te dice si es <b style="color:#7ef0a8">SMT</b> (montaje superficial) o <b style="color:#fcd277">No SMT</b> (módulo / through-hole).</p>
+    </div>
+    <div class="toolbar">
+      <input id="search" placeholder="Buscar… (capacitor, MOSFET, CAN, 0805…)">
+      <select id="catFilter">
+        <option value="todos">Todas las categorías</option>
+        <option>Pasivo</option><option>Protección</option><option>Activo</option>
+        <option>Integrado</option><option>Tablero</option><option>Conexión</option>
+      </select>
+      <select id="smtFilter">
+        <option value="todos">SMT y No-SMT</option>
+        <option value="si">Solo SMT</option>
+        <option value="no">Solo No-SMT</option>
+      </select>
+      <span class="count" id="count"></span>
+    </div>
+    <div class="comp-grid" id="grid"></div>
+  </div>
+</section>
+
+<!-- REPASO / FLASHCARDS -->
+<section id="repaso" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">Modo estudio</div>
+      <h2>Repaso rápido (flashcards)</h2>
+      <p>Mira el dibujo y di qué componente es. Toca la tarjeta para revelar la respuesta. Ideal para memorizar antes del examen.</p>
+    </div>
+    <div class="fc-wrap">
+      <div class="fcard" id="fcard" onclick="flipCard()">
+        <div class="face-front">
+          <div class="label" id="fcLabel">¿QUÉ COMPONENTE ES?</div>
+          <div id="fcSvg"></div>
+          <h3 id="fcGuess">Toca para empezar</h3>
+        </div>
+        <div class="back" id="fcBack"></div>
+        <div class="hint">toca la tarjeta para voltear</div>
+      </div>
+      <div class="fc-ctrl">
+        <button class="btn btn-2" onclick="event.stopPropagation();prevCard()">‹ Anterior</button>
+        <button class="btn btn-1" onclick="event.stopPropagation();nextCard()">Siguiente ›</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LÍNEAS (enlace a otra página) -->
+<section id="lineas">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">Planta</div>
+      <h2>Líneas de la máquina</h2>
+      <p>Las líneas viven en su propia página, con vista de coche y módulos. Cuando me pases tus nombres reales, ahí se llenan.</p>
+    </div>
+    <div style="text-align:center">
+      <!-- 👇 AQUÍ SE LLAMA A LA OTRA PÁGINA WEB (archivo lineas.html en la misma carpeta) -->
+      <a href="lineas.html" class="btn btn-1">Abrir página de Líneas →</a>
+    </div>
+  </div>
+</section>
+
+<!-- EXAMEN -->
+<section id="examen" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">Evaluación</div>
+      <h2>Examen de práctica</h2>
+      <p>Preguntas y respuestas aleatorias cada intento. Cronómetro. Al terminar (o al acabarse el tiempo) se califica solo y te muestra las respuestas correctas.</p>
+    </div>
+
+    <!-- setup -->
+    <div class="exam-setup" id="examSetup">
+      <h3>Antes de empezar — reglas</h3>
+      <ul class="rules">
+        <li>Las preguntas y las opciones salen <b>aleatorias</b> cada vez.</li>
+        <li>Tienes un <b>cronómetro</b>; al llegar a 0 se entrega solo.</li>
+        <li class="ok">Al entregar se muestran las <b>respuestas correctas</b>.</li>
+        <li>Lo que no contestes cuenta como <b>error</b> (pero verás la correcta).</li>
+        <li><b>No salgas de la pestaña ni minimices:</b> si cambias de ventana o copias, el examen se cierra con <b>cero</b>.</li>
+      </ul>
+      <div class="field">
+        <label>N° de preguntas:</label>
+        <select id="numQ"><option>8</option><option selected>10</option><option>15</option><option>20</option></select>
+        <label>Tiempo:</label>
+        <select id="minQ"><option value="5">5 min</option><option value="8" selected>8 min</option><option value="12">12 min</option><option value="20">20 min</option></select>
+      </div>
+      <button class="btn btn-1" onclick="startExam()">Iniciar examen</button>
+    </div>
+
+    <!-- live -->
+    <div class="exam-live" id="examLive">
+      <div class="banner-cheat" id="cheatBanner"></div>
+      <div class="exam-bar">
+        <div><span class="progress-mini" id="examTitle">Examen en curso</span></div>
+        <div class="timer" id="timer">--:--</div>
+        <div class="progress-mini" id="answeredCount">0 contestadas</div>
+      </div>
+      <div id="questions"></div>
+      <div class="exam-foot">
+        <button class="btn btn-1" onclick="submitExam(false)">Entregar examen</button>
+        <span class="progress-mini">Revisa todo antes de entregar.</span>
+      </div>
+    </div>
+
+    <!-- result -->
+    <div class="result" id="examResult">
+      <div class="banner-cheat" id="resultCheat"></div>
+      <div class="score" id="scoreNum">0</div>
+      <div class="msg" id="scoreMsg"></div>
+      <div class="detailline" id="scoreDetail"></div>
+      <button class="btn btn-1" onclick="reviewExam()">Ver respuestas</button>
+      <button class="btn btn-2" onclick="resetExam()">Repetir</button>
+    </div>
+  </div>
+</section>
+
+<!-- TIPS + GLOSARIO -->
+<section id="tips">
+  <div class="wrap">
+    <div class="sec-head"><div class="tag">Buenas prácticas</div><h2>Consejos para revisar tarjetas</h2></div>
+    <div class="tips-grid">
+      <div class="tip">Identifica primero la <b>alimentación de 12 V</b> y de ahí sigue la señal.</div>
+      <div class="tip">Revisa <b>fusibles, diodo TVS y reguladores</b> antes de culpar al micro.</div>
+      <div class="tip">Busca capacitores <b>inflados, quemados o con fuga</b>.</div>
+      <div class="tip">Usa multímetro: continuidad, voltaje y resistencia.</div>
+      <div class="tip">No cambies piezas sin checar <b>valor y polaridad</b>.</div>
+      <div class="tip">Usa siempre componentes de <b>grado automotriz</b>.</div>
+    </div>
+
+    <div class="sec-head" style="margin-top:42px"><div class="tag">Vocabulario</div><h2>Glosario SMT</h2></div>
+    <div class="glos">
+      <div class="gl"><b>SMT / SMD</b><p>Surface Mount Technology: componentes que se sueldan sobre la superficie, sin patas que crucen la placa.</p></div>
+      <div class="gl"><b>THT</b><p>Through-Hole: patas que atraviesan la placa por barrenos. Lo contrario de SMT.</p></div>
+      <div class="gl"><b>Encapsulado</b><p>El "tamaño/forma" del componente: 0402, 0603, 0805, SOT-23, SOIC, QFP…</p></div>
+      <div class="gl"><b>Pad / Footprint</b><p>La zona de cobre donde se suelda el componente.</p></div>
+      <div class="gl"><b>Reflow</b><p>Horno que funde la pasta de soldadura para fijar las piezas SMT.</p></div>
+      <div class="gl"><b>ICT / FCT</b><p>Prueba en circuito / prueba funcional: verifican la placa después de soldar.</p></div>
+      <div class="gl"><b>Load dump</b><p>Pico fuerte de voltaje del alternador; por eso existen TVS y reguladores robustos.</p></div>
+      <div class="gl"><b>CAN / LIN</b><p>Redes de comunicación entre módulos del carro (ECU, ABS, tablero…).</p></div>
+    </div>
+
+    <div class="warnbox">⚠ Página educativa. Para reparar una ECU real se necesita diagnóstico correcto, herramienta adecuada y seguridad eléctrica.</div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>Marelli Tepotzotlán · Capacitación SMT — tarjeta automotriz</p>
+  <p class="mono">Hecho para estudiar y para que los nuevos lleguen preparados.</p>
+</footer>
+
+<script src="js/componentes.js"></script>
+</body>
+</html>

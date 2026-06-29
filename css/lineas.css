@@ -1,0 +1,50 @@
+/* lineas.css — estilos propios de la pagina de lineas */
+.nav a:hover{color:var(--ink);background:var(--panel)}
+.hero{padding:60px 5% 50px;border-bottom:1px solid var(--line);text-align:center;position:relative;overflow:hidden;
+  background:radial-gradient(900px 380px at 50% -10%,rgba(0,224,255,.16),transparent 62%),linear-gradient(180deg,#0c1526,var(--bg))}
+.hero .grid-bg{position:absolute;inset:0;opacity:.3;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:34px 34px;mask:radial-gradient(680px 340px at 50% 0%,#000,transparent 75%)}
+.hero-in{position:relative;max-width:1000px;margin:0 auto}
+.eyebrow{font-family:var(--mono);color:var(--cyan);font-size:.74rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px}
+.hero h1{font-size:clamp(2rem,5.5vw,3.4rem);line-height:1.06;font-weight:800;letter-spacing:-1px;margin-bottom:14px}
+.hero h1 span{color:var(--cyan)}
+.hero p{color:var(--muted);max-width:600px;margin:0 auto;font-size:1.05rem}
+.back{display:inline-flex;align-items:center;gap:7px;margin-top:22px;font-weight:700}
+.btn-1:hover{background:#3eeaff;transform:translateY(-2px)}
+.btn-2:hover{border-color:var(--cyan);color:var(--cyan)}
+/* COCHE INTERACTIVO */
+.car-stage{position:relative;max-width:760px;margin:0 auto;background:
+  radial-gradient(60% 80% at 50% 40%,rgba(0,224,255,.06),transparent),var(--panel);
+  border:1px solid var(--line);border-radius:20px;padding:20px}
+.car-stage svg{width:100%;height:auto;display:block}
+.hotspot{position:absolute;width:26px;height:26px;border-radius:50%;border:none;cursor:pointer;
+  background:var(--cyan);box-shadow:0 0 0 0 rgba(0,224,255,.7);transform:translate(-50%,-50%);
+  animation:ping 2s infinite;display:flex;align-items:center;justify-content:center;color:#04121b;font-weight:800;font-size:.8rem}
+.hotspot.tcu{background:var(--copper);animation:pingC 2s infinite}
+.hotspot:hover{transform:translate(-50%,-50%) scale(1.18)}
+.hotspot.active{outline:3px solid #fff}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(0,224,255,.6)}70%{box-shadow:0 0 0 14px rgba(0,224,255,0)}100%{box-shadow:0 0 0 0 rgba(0,224,255,0)}}
+@keyframes pingC{0%{box-shadow:0 0 0 0 rgba(232,161,90,.6)}70%{box-shadow:0 0 0 14px rgba(232,161,90,0)}100%{box-shadow:0 0 0 0 rgba(232,161,90,0)}}
+.module-panel{max-width:760px;margin:18px auto 0;background:var(--panel);border:1px solid var(--line);
+  border-radius:16px;padding:22px;border-left:4px solid var(--cyan)}
+.module-panel.tcu{border-left-color:var(--copper)}
+.module-panel .pt{font-family:var(--mono);font-size:.72rem;letter-spacing:1px;color:var(--cyan)}
+.module-panel.tcu .pt{color:var(--copper)}
+.module-panel h3{font-size:1.35rem;margin:5px 0 8px}
+.module-panel .mine{display:inline-block;font-family:var(--mono);font-size:.64rem;font-weight:700;
+  background:rgba(232,161,90,.16);color:#fcd277;border:1px solid #946417;padding:3px 8px;border-radius:6px;margin-left:6px}
+.module-panel p{color:var(--muted);margin-bottom:12px}
+.module-panel .parts{display:flex;gap:8px;flex-wrap:wrap}
+.module-panel .parts span{font-family:var(--mono);font-size:.72rem;background:var(--bg2);border:1px solid var(--line);
+  padding:6px 10px;border-radius:8px;color:var(--ink)}
+.hint{text-align:center;color:var(--muted);font-family:var(--mono);font-size:.74rem;margin-top:12px}
+/* FLUJO DE LÍNEA */
+.lineflow{display:flex;align-items:stretch;overflow-x:auto;padding-bottom:8px;justify-content:center;gap:0}
+/* HUECO PARA TU CÓDIGO */
+.dropzone{border:2px dashed var(--cyan-dim);border-radius:16px;padding:30px;text-align:center;
+  background:rgba(0,224,255,.04);color:var(--muted)}
+.dropzone b{color:var(--cyan)}
+.dropzone code{font-family:var(--mono);background:var(--bg2);border:1px solid var(--line);padding:2px 7px;border-radius:6px;color:var(--copper)}
+
+@media(max-width:760px){ .hotspot{width:22px;height:22px;font-size:.7rem} }

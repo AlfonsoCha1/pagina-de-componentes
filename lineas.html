@@ -6,6 +6,8 @@
 <title>Marelli · Líneas y módulos del coche</title>
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/lineas.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="any">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0b1220">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
@@ -16,12 +18,12 @@
   <div class="brand"><span class="dot"></span><div>Marelli SMT<small>LÍNEAS Y MÓDULOS</small></div></div>
   <button class="menu-btn" onclick="document.getElementById('navlinks').classList.toggle('show')">☰</button>
   <ul id="navlinks">
-    <!-- 👇 estos enlaces REGRESAN al index.html (la otra página) -->
-    <li><a href="index.html#inicio">Inicio</a></li>
-    <li><a href="index.html#componentes">Componentes</a></li>
-    <li><a href="index.html#examen">Examen</a></li>
+    <li><a href="index.html">🏠 Portal</a></li>
+    <li><a href="componentes.html#componentes">Componentes</a></li>
+    <li><a href="componentes.html#examen">Examen</a></li>
     <li><a href="#coche">El coche</a></li>
     <li><a href="#lineas">Líneas</a></li>
+    <li><a href="mantenimiento.html">Mantenimiento</a></li>
   </ul>
 </nav>
 
@@ -31,7 +33,7 @@
     <div class="eyebrow">Planta · módulos · línea SMT</div>
     <h1>¿Dónde vive cada <span>tarjeta</span> en el coche?</h1>
     <p>Toca un módulo del carro y descubre qué hace y qué componentes lleva. Abajo está la línea de producción donde se fabrica.</p>
-    <a href="index.html" class="back btn btn-2">← Volver a componentes y examen</a>
+    <a href="index.html" class="back btn btn-2">← Volver al portal</a>
   </div>
 </header>
 
@@ -136,8 +138,5 @@
 </footer>
 
 <script src="js/lineas.js"></script>
-<script>
-if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));}
-</script>
 </body>
 </html>

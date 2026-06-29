@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marelli · Mantenimiento</title>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/mantenimiento.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0b1220">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="brand"><span class="dot"></span><div>Marelli<small>MANTENIMIENTO</small></div></div>
+  <button class="menu-btn" onclick="document.getElementById('navlinks').classList.toggle('show')">☰</button>
+  <ul id="navlinks">
+    <li><a href="index.html">🏠 Portal</a></li>
+    <li><a href="componentes.html#componentes">Componentes</a></li>
+    <li><a href="lineas.html">Líneas</a></li>
+    <li><a href="#checklist">Checklist</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div class="grid-bg"></div>
+  <div class="hero-in">
+    <div class="eyebrow">Estación · equipo · línea</div>
+    <h1>Mantenimiento de la <span>estación</span></h1>
+    <p>Checklist para dejar el equipo en orden y un espacio para reportar fallas. Es un ejemplo — dime qué revisas tú y lo dejamos exacto.</p>
+    <a href="index.html" class="back btn btn-2">← Volver al portal</a>
+  </div>
+</header>
+
+<main>
+
+<section id="checklist">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">Rutina diaria</div>
+      <h2>Checklist de la estación</h2>
+      <p>Marca cada punto al completarlo. (Ejemplo genérico para una estación de pruebas ICT/FCT.)</p>
+    </div>
+    <ul class="checklist">
+      <li><label><input type="checkbox"><span></span>Revisar que el equipo encienda y cargue el software de prueba.</label></li>
+      <li><label><input type="checkbox"><span></span>Verificar conexiones del fixture y los cables de prueba.</label></li>
+      <li><label><input type="checkbox"><span></span>Limpiar sondas / pines de contacto del fixture.</label></li>
+      <li><label><input type="checkbox"><span></span>Comprobar que no haya mensajes de error o calibración pendiente.</label></li>
+      <li><label><input type="checkbox"><span></span>Correr una tarjeta de referencia (golden board) y confirmar PASS.</label></li>
+      <li><label><input type="checkbox"><span></span>Revisar el área de trabajo: limpia, ordenada y sin material extra.</label></li>
+      <li><label><input type="checkbox"><span></span>Registrar cualquier anomalía en la bitácora.</label></li>
+    </ul>
+  </div>
+</section>
+
+<section id="reporte" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">Reporte</div>
+      <h2>Reportar una falla</h2>
+      <p>Aquí va tu formato de reporte de falla de equipo/PC. Pega tu código en la zona marcada.</p>
+    </div>
+
+    <!-- ====================================================== -->
+    <!-- ======   AQUÍ PEGA TU CÓDIGO DEL REPORTE / MANTENIMIENTO -->
+    <!-- ====================================================== -->
+    <div class="dropzone">
+      🔧 <b>Pega aquí tu código.</b><br><br>
+      Reemplaza este recuadro por tu HTML del reporte de fallas (como el del portal interno de Marelli, el botón rojo que avisa con nombre, hora e IP).
+    </div>
+    <!-- ====== FIN DE LA ZONA PARA TU CÓDIGO ====== -->
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>Marelli Tepotzotlán · Mantenimiento</p>
+  <p class="mono">Página enlazada desde el portal</p>
+</footer>
+
+<script src="js/mantenimiento.js"></script>
+</body>
+</html>
